@@ -1,7 +1,10 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {
     "browserify": "^8.0.3",
+    "browserify-shim": "^3.8.2",
     "connect": "^3.3.3",
     "gulp": "^3.8.10",
     "gulp-concat": "^2.4.3",
@@ -16,5 +19,14 @@
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.2.1"
   },
-  "repository": {}
+  "repository": {},
+  "browser": {
+    "lodash": "./node_modules/lodash/dist/lodash.compat.js",
+    "Phaser": "./src/js/phaser.js"
+  },
+  "browserify-shim": {
+    "lodash": {
+      "exports": "_"
+    }
+  }
 }
