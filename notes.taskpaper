@@ -1,11 +1,13 @@
 Literally Unique Shmup:
 	Tasks:
-		- clean up gulp tasks
-			- browserify
-			- watchify
-			- uglify
-			- live reload or browser-sync
+		- clean up gulp tasks @done
+			- browserify @done
+			- watchify @done
+			- uglify @done
+			- live reload or browser-sync @done
 				does browser-sync require a browser plugin?
 				live reload does require a browser plugin, i think
 		- grab starter code from tutorial
 		- wrap up tutorial starter code as modules
+
+	Ideas:
