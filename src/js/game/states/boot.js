@@ -1,11 +1,17 @@
 module.exports = function(game) {
 
 	return {
-		create: function() {
-			game.scale.pageAlignHorizontally = true;
-			game.scale.pageAlignVertically = true;
-			game.scale.refresh();
+		
+		init: function() {
+			game.input.maxPointers = 1;
+		},
 
+		preload: function() {
+			game.load.image('preloaderBackground', 'images/preloader-background.png');
+			game.load.image('preloaderBar', 'images/preloader-bar.png');
+		},
+
+		create: function() {
 			game.state.start('preloader');
 		}
 	};

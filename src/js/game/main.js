@@ -8,6 +8,7 @@ var properties = require('./properties');
 var states = {
 	boot: require('./states/boot'),
 	preloader: require('./states/preloader'),
+	mainMenu: require('./states/main-menu'),
 	game: require('./states/game')
 };
 
