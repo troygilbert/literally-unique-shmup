@@ -6,10 +6,6 @@ BasicGame.MainMenu = function(game) {
 
 BasicGame.MainMenu.prototype = {
 
-	preload: function() {
-		this.load.image('titlepage', 'images/titlepage.png');
-	},
-
 	create: function() {
 		this.titleScreen = this.add.sprite(0, 0, 'titlepage');
 		this.titleScreen.width = this.game.width;
