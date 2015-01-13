@@ -321,7 +321,7 @@ BasicGame.Game.prototype = {
 	fire: function() {
 		if (!this.player.alive) return;
 		if (this.nextShotAt > this.time.now) return;
-		
+
 		this.nextShotAt = this.time.now + this.shotDelay;
 
 		var bullet;
@@ -342,6 +342,8 @@ BasicGame.Game.prototype = {
 				this.physics.arcade.velocityFromAngle(-85 + i * 10, BasicGame.BULLET_VELOCITY, bullet.body.velocity);
 			}
 		}
+
+		this.playerFireSFX.play();
 	},
 
 	enemyHit: function(bullet, enemy) {
