@@ -38,7 +38,9 @@ var BasicGame = {
 	PLAYER_GHOST_TIME: Phaser.Timer.SECOND * 3,
 
 	INSTRUCTION_EXPIRE: Phaser.Timer.SECOND * 10,
-	RETURN_MESSAGE_DELAY: Phaser.Timer.SECOND * 2
+	RETURN_MESSAGE_DELAY: Phaser.Timer.SECOND * 2,
+
+	BOSS_SCORE_THRESHOLD: 10000
 };
 
 BasicGame.Boot = function (game) {

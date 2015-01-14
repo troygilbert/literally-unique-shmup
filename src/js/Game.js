@@ -410,7 +410,7 @@ BasicGame.Game.prototype = {
 	addToScore: function(score) {
 		this.score += score;
 		this.scoreText.text = this.score;
-		if (this.score >= 20000 && this.bossPool.countDead() === 1) {
+		if (this.score >= BasicGame.BOSS_SCORE_THRESHOLD && this.bossPool.countDead() === 1) {
 			this.spawnBoss();
 		}
 	},

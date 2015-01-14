@@ -14,15 +14,15 @@ BasicGame.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('titlepage', 'images/titlepage.png');
-		this.load.image('sea', 'images/sea.png');
+		this.load.image('sea', 'images/desert.png');
 		this.load.image('bullet', 'images/bullet.png');
 		this.load.image('enemyBullet', 'images/enemy-bullet.png');
 		this.load.image('powerup1', 'images/powerup1.png');
-		this.load.spritesheet('greenEnemy', 'images/enemy.png', 32, 32);
+		this.load.spritesheet('greenEnemy', 'images/enemy.png', 16, 16);
 		this.load.spritesheet('whiteEnemy', 'images/shooting-enemy.png', 32, 32);
-		this.load.spritesheet('boss', 'images/boss.png', 93, 75);
+		this.load.spritesheet('boss', 'images/boss.png', 32, 32);
 		this.load.spritesheet('explosion', 'images/explosion.png', 32, 32);
-		this.load.spritesheet('player', 'images/player.png', 64, 64);
+		this.load.spritesheet('player', 'images/player.png', 32, 32);
 		this.load.audio('explosion', ['sounds/explosion.ogg', 'sounds/explosion.wav']);
 		this.load.audio('playerExplosion', ['sounds/player-explosion.ogg', 'sounds/player-explosion.wav']);
 		this.load.audio('enemyFire', ['sounds/enemy-fire.ogg', 'sounds/enemy-fire.wav']);
