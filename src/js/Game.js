@@ -18,8 +18,13 @@ BasicGame.Game.prototype = {
 	},
 
 	setupBackground: function() {
-		this.sea = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'sea');
-		this.sea.autoScroll(0, BasicGame.SEA_SCROLL_SPEED);
+		this.stars1 = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'stars');
+		this.stars1.autoScroll(0, BasicGame.STARS_SCROLL_SPEED);
+		this.stars1.alpha = 0.5;
+		
+		this.stars2 = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'stars');
+		this.stars2.autoScroll(0, BasicGame.STARS_SCROLL_SPEED * 2);
+		this.stars2.tilePosition.x = 1024;
 	},
 
 	setupPlayer: function() {
@@ -64,6 +69,7 @@ BasicGame.Game.prototype = {
 		this.shooterPool.createMultiple(20, 'whiteEnemy');
 		this.shooterPool.setAll('anchor.x', 0.5);
 		this.shooterPool.setAll('anchor.y', 0.5);
+		this.shooterPool.setAll('rotation', 180);
 		this.shooterPool.setAll('outOfBoundsKill', true);
 		this.shooterPool.setAll('checkWorldBounds', true);
 		this.shooterPool.setAll('reward', BasicGame.SHOOTER_REWARD, false, false, 0, true);
@@ -188,6 +194,7 @@ BasicGame.Game.prototype = {
 	update: function() {
 		this.checkCollisions();
 		this.spawnEnemies();
+		this.aimShooters();
 		this.enemyFire();
 		this.processPlayerInput();
 		this.processDelayedEffects();
@@ -222,10 +229,18 @@ BasicGame.Game.prototype = {
 			shooter.rotation = this.physics.arcade.moveToXY(shooter,
 				this.rnd.integerInRange(20, this.game.width - 20), this.game.height,
 				this.rnd.integerInRange(BasicGame.SHOOTER_MIN_VELOCITY, BasicGame.SHOOTER_MAX_VELOCITY)
-			) - Math.PI / 2;
+			) + Math.PI / 2;
 			shooter.play('fly');
 			shooter.nextShotAt = 0;
 		}
+	},
+
+	aimShooters: function() {
+		var that = this;
+		this.shooterPool.forEachAlive(function(shooter) {
+			shooter.rotation = that.game.math.angleBetween(shooter.x, shooter.y,
+				that.player.x, that.player.y) + Math.PI / 2;
+		});
 	},
 
 	enemyFire: function() {
@@ -447,7 +462,8 @@ BasicGame.Game.prototype = {
 	},
 
 	quitGame: function() {
-		this.sea.destroy();
+		this.stars1.destroy();
+		this.stars2.destroy();
 		this.player.destroy();
 		this.enemyPool.destroy();
 		this.bulletPool.destroy();
